@@ -1,0 +1,81 @@
+digraph {
+        compound = "true"
+        newrank = "true"
+        subgraph "root" {
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1a (expand)" [label = "module.eks_network.aws_eip.eks_ngw_eip_1a", shape = "box"]
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1b (expand)" [label = "module.eks_network.aws_eip.eks_ngw_eip_1b", shape = "box"]
+                "[root] module.eks_network.aws_internet_gateway.eks-igw (expand)" [label = "module.eks_network.aws_internet_gateway.eks-igw", shape = "box"]
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1a (expand)" [label = "module.eks_network.aws_nat_gateway.eks_ngw_1a", shape = "box"]
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1b (expand)" [label = "module.eks_network.aws_nat_gateway.eks_ngw_1b", shape = "box"]
+                "[root] module.eks_network.aws_route_table.eks_private_route_table_1a (expand)" [label = "module.eks_network.aws_route_table.eks_private_route_table_1a", shape = "box"]
+                "[root] module.eks_network.aws_route_table.eks_private_route_table_1b (expand)" [label = "module.eks_network.aws_route_table.eks_private_route_table_1b", shape = "box"]
+                "[root] module.eks_network.aws_route_table.eks_public_route_table (expand)" [label = "module.eks_network.aws_route_table.eks_public_route_table", shape = "box"]
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1a (expand)" [label = "module.eks_network.aws_route_table_association.eks_rtb_assoc_1a", shape = "box"]
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1b (expand)" [label = "module.eks_network.aws_route_table_association.eks_rtb_assoc_1b", shape = "box"]
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a (expand)" [label = "module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a", shape = "box"]
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b (expand)" [label = "module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b", shape = "box"]
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1a (expand)" [label = "module.eks_network.aws_subnet.eks_subnet_private_1a", shape = "box"]
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1b (expand)" [label = "module.eks_network.aws_subnet.eks_subnet_private_1b", shape = "box"]
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1a (expand)" [label = "module.eks_network.aws_subnet.eks_subnet_public_1a", shape = "box"]
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1b (expand)" [label = "module.eks_network.aws_subnet.eks_subnet_public_1b", shape = "box"]
+                "[root] module.eks_network.aws_vpc.eks_vpc (expand)" [label = "module.eks_network.aws_vpc.eks_vpc", shape = "box"]
+                "[root] module.eks_network.data.aws_region.current (expand)" [label = "module.eks_network.data.aws_region.current", shape = "box"]
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+                "[root] var.cidr_block" [label = "var.cidr_block", shape = "note"]
+                "[root] var.project_name" [label = "var.project_name", shape = "note"]
+                "[root] var.tags" [label = "var.tags", shape = "note"]
+                "[root] module.eks_network (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1a (expand)"
+                "[root] module.eks_network (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1b (expand)"
+                "[root] module.eks_network (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a (expand)"
+                "[root] module.eks_network (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b (expand)"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1a (expand)" -> "[root] module.eks_network.var.project_name (expand)"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1a (expand)" -> "[root] module.eks_network.var.tags (expand)"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1a (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1b (expand)" -> "[root] module.eks_network.var.project_name (expand)"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1b (expand)" -> "[root] module.eks_network.var.tags (expand)"
+                "[root] module.eks_network.aws_eip.eks_ngw_eip_1b (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] module.eks_network.aws_internet_gateway.eks-igw (expand)" -> "[root] module.eks_network.aws_vpc.eks_vpc (expand)"
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1a (expand)" -> "[root] module.eks_network.aws_eip.eks_ngw_eip_1a (expand)"
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1a (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_public_1a (expand)"
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1b (expand)" -> "[root] module.eks_network.aws_eip.eks_ngw_eip_1b (expand)"
+                "[root] module.eks_network.aws_nat_gateway.eks_ngw_1b (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_public_1b (expand)"
+                "[root] module.eks_network.aws_route_table.eks_private_route_table_1a (expand)" -> "[root] module.eks_network.aws_nat_gateway.eks_ngw_1a (expand)"
+                "[root] module.eks_network.aws_route_table.eks_private_route_table_1b (expand)" -> "[root] module.eks_network.aws_nat_gateway.eks_ngw_1b (expand)"
+                "[root] module.eks_network.aws_route_table.eks_public_route_table (expand)" -> "[root] module.eks_network.aws_internet_gateway.eks-igw (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1a (expand)" -> "[root] module.eks_network.aws_route_table.eks_public_route_table (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1a (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_public_1a (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1b (expand)" -> "[root] module.eks_network.aws_route_table.eks_public_route_table (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1b (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_public_1b (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a (expand)" -> "[root] module.eks_network.aws_route_table.eks_private_route_table_1a (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_private_1a (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b (expand)" -> "[root] module.eks_network.aws_route_table.eks_private_route_table_1b (expand)"
+                "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b (expand)" -> "[root] module.eks_network.aws_subnet.eks_subnet_private_1b (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1a (expand)" -> "[root] module.eks_network.aws_vpc.eks_vpc (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1a (expand)" -> "[root] module.eks_network.data.aws_region.current (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1b (expand)" -> "[root] module.eks_network.aws_vpc.eks_vpc (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_private_1b (expand)" -> "[root] module.eks_network.data.aws_region.current (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1a (expand)" -> "[root] module.eks_network.aws_vpc.eks_vpc (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1a (expand)" -> "[root] module.eks_network.data.aws_region.current (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1b (expand)" -> "[root] module.eks_network.aws_vpc.eks_vpc (expand)"
+                "[root] module.eks_network.aws_subnet.eks_subnet_public_1b (expand)" -> "[root] module.eks_network.data.aws_region.current (expand)"
+                "[root] module.eks_network.aws_vpc.eks_vpc (expand)" -> "[root] module.eks_network.var.cidr_block (expand)"
+                "[root] module.eks_network.aws_vpc.eks_vpc (expand)" -> "[root] module.eks_network.var.project_name (expand)"
+                "[root] module.eks_network.aws_vpc.eks_vpc (expand)" -> "[root] module.eks_network.var.tags (expand)"
+                "[root] module.eks_network.aws_vpc.eks_vpc (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] module.eks_network.data.aws_region.current (expand)" -> "[root] module.eks_network (expand)"
+                "[root] module.eks_network.data.aws_region.current (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] module.eks_network.var.cidr_block (expand)" -> "[root] module.eks_network (expand)"
+                "[root] module.eks_network.var.cidr_block (expand)" -> "[root] var.cidr_block"
+                "[root] module.eks_network.var.project_name (expand)" -> "[root] module.eks_network (expand)"
+                "[root] module.eks_network.var.project_name (expand)" -> "[root] var.project_name"
+                "[root] module.eks_network.var.tags (expand)" -> "[root] module.eks_network (expand)"
+                "[root] module.eks_network.var.tags (expand)" -> "[root] var.tags"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1a (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_1b (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1a (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.eks_network.aws_route_table_association.eks_rtb_assoc_priv_1b (expand)"
+                "[root] root" -> "[root] local.tags (expand)"
+                "[root] root" -> "[root] module.eks_network (close)"
+                "[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+        }
+}
